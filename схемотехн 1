@@ -1,0 +1,62 @@
+#include <iostream>
+#include <bitset>
+#include <sstream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+// Convert decimal string to binary string
+string convertDecimalToBinary(string dec) {
+    int number = stoi(dec);
+    return bitset<32>(number).to_string();
+}
+
+// Convert decimal string to hexadecimal string
+string convertDecimalToHexadecimal(string dec) {
+    int number = stoi(dec);
+    stringstream ss;
+    ss << hex << number;
+    return ss.str();
+}
+
+// Convert binary string to hexadecimal string
+string convertBinaryToHexadecimal(string bin) {
+    int number = stoi(bin, nullptr, 2);
+    stringstream ss;
+    ss << hex << number;
+    return ss.str();
+}
+
+// Convert binary string to decimal string
+string convertBinaryToDecimal(string bin) {
+    int number = stoi(bin, nullptr, 2);
+    return to_string(number);
+}
+
+// Convert hexadecimal string to binary string
+string convertHexadecimalToBinary(string hex) {
+    int number = stoi(hex, nullptr, 16);
+    return bitset<32>(number).to_string();
+}
+
+// Convert hexadecimal string to decimal string
+string convertHexadecimalToDecimal(string hex) {
+    int number = stoi(hex, nullptr, 16);
+    return to_string(number);
+}
+
+int main() {
+    string dec = "42";
+    string bin = "101010";
+    string hex = "2A";
+    
+    cout << "Decimal to Binary: " << convertDecimalToBinary(dec) << endl;
+    cout << "Decimal to Hexadecimal: " << convertDecimalToHexadecimal(dec) << endl;
+    cout << "Binary to Decimal: " << convertBinaryToDecimal(bin) << endl;
+    cout << "Binary to Hexadecimal: " << convertBinaryToHexadecimal(bin) << endl;
+    cout << "Hexadecimal to Decimal: " << convertHexadecimalToDecimal(hex) << endl;
+    cout << "Hexadecimal to Binary: " << convertHexadecimalToBinary(hex) << endl;
+    
+    return 0;
+}
