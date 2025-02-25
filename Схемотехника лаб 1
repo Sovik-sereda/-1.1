@@ -1,0 +1,24 @@
+#include <iostream>
+#include <bitset>
+#include <sstream>
+#include <string>
+
+using namespace std;
+
+string convertDecimalToBinary(string dec) { return bitset<32>(stoi(dec)).to_string(); }
+string convertDecimalToHexadecimal(string dec) { stringstream ss; ss << hex << stoi(dec); return ss.str(); }
+string convertBinaryToHexadecimal(string bin) { stringstream ss; ss << hex << stoi(bin, nullptr, 2); return ss.str(); }
+string convertBinaryToDecimal(string bin) { return to_string(stoi(bin, nullptr, 2)); }
+string convertHexadecimalToBinary(string hex) { return bitset<32>(stoi(hex, nullptr, 16)).to_string(); }
+string convertHexadecimalToDecimal(string hex) { return to_string(stoi(hex, nullptr, 16)); }
+
+int main() {
+    string dec = "42", bin = "101010", hex = "2A";
+    cout << "Decimal to Binary: " << convertDecimalToBinary(dec) << endl;
+    cout << "Decimal to Hexadecimal: " << convertDecimalToHexadecimal(dec) << endl;
+    cout << "Binary to Decimal: " << convertBinaryToDecimal(bin) << endl;
+    cout << "Binary to Hexadecimal: " << convertBinaryToHexadecimal(bin) << endl;
+    cout << "Hexadecimal to Decimal: " << convertHexadecimalToDecimal(hex) << endl;
+    cout << "Hexadecimal to Binary: " << convertHexadecimalToBinary(hex) << endl;
+    return 0;
+}
